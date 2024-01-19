@@ -1,55 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-
 import styles from "./user-details-form.module.scss";
 
-export default function UserDetailsForm(props) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      firstname: "",
-      lastname: "",
-      email: "",
-    },
-  });
+export default function UserDetailsForm({ register, errors, index }) {
+  const firstName = `childForms[${index}].firstName`;
+  const lastName = `childForms[${index}].lastName`;
+  const email = `childForms[${index}].email`;
 
-  const onSubmit = (data) => {
-    // Form submission logic goes here
-    console.log("Form submitted:", data);
+  const getErrorMessage = (name) => {
+    if (errors.childForms && errors.childForms[index]) {
+      return errors.childForms[index][name]?.message;
+    }
   };
 
   return (
     <main className={styles.user_details_form_container}>
-      <form className={styles.my_form} onSubmit={handleSubmit(onSubmit)}>
+      <section className={styles.my_form}>
         <div className={styles.form_group}>
-          <label htmlFor="firstname">First Name:</label>
+          <label htmlFor={firstName}>First Name:</label>
           <input
             type="text"
-            id="firstname"
-            {...register("firstname", { required: "First name is required" })}
+            id={firstName}
+            {...register(firstName, { required: "First name is required" })}
           />
         </div>
-        <div className={styles.error}>{errors.firstname?.message}</div>
+        <div className={styles.error}>{getErrorMessage("firstName")}</div>
 
         <div className={styles.form_group}>
-          <label htmlFor="lastname">Last Name:</label>
+          <label htmlFor={lastName}>Last Name:</label>
           <input
             type="text"
-            id="lastname"
-            {...register("lastname", { required: "Last name is required" })}
+            id={lastName}
+            {...register(lastName, { required: "Last name is required" })}
           />
         </div>
-        <div className={styles.error}>{errors.lastname?.message}</div>
+        <div className={styles.error}>{getErrorMessage("lastName")}</div>
 
         <div className={styles.form_group}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor={email}>Email:</label>
           <input
             type="text"
-            id="email"
-            {...register("email", {
+            id={email}
+            {...register(email, {
               required: "Email is required",
               pattern: {
                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -58,10 +50,8 @@ export default function UserDetailsForm(props) {
             })}
           />
         </div>
-        <div className={styles.error}>{errors.email?.message}</div>
-
-        {/* <button type="submit">Submit</button> */}
-      </form>
+        <div className={styles.error}>{getErrorMessage("email")}</div>
+      </section>
     </main>
   );
 }
