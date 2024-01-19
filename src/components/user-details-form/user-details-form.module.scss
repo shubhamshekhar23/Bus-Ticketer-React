@@ -1,0 +1,37 @@
+.user_details_form_container {
+  .my_form {
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .form_group {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    // width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .error {
+    color: red;
+    height: 20px;
+    text-align: end;
+    font-size: 10px;
+  }
+
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
+}

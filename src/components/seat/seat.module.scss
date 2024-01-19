@@ -1,0 +1,25 @@
+.seat_container {
+  height: 20px;
+  width: 40px;
+  border: 1px solid lightgray;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  cursor: pointer;
+}
+
+.seat_back {
+  height: 10px;
+  width: 3px;
+  border: 1px solid lightgray;
+  margin-right: 5px;
+}
+
+.seat_booked {
+  background-color: gray;
+  cursor: unset;
+}
+
+.seat_selected {
+  background-color: crimson;
+}
