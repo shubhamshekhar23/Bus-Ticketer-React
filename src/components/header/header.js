@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./header.scss";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(true);
@@ -11,7 +12,9 @@ const Header = () => {
   return (
     <nav className="header__nav-container">
       <div className="nav-container">
-        <div className="nav-logo">Bus Ticketer</div>
+        <a href="/" className="nav-logo">
+          Bus Ticketer
+        </a>
         <div className="nav-menu">
           <div className="nav-item" onClick={toggleDropdown}>
             Menu

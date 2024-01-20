@@ -1,6 +1,6 @@
 import { reservationList } from "../constants/mockdata/reservation.mockdata";
 import { v4 as uuidv4 } from "uuid";
-import { bookSeats } from "./bus-service.api";
+import { bookSeats, unBookSeats } from "./bus-service.api";
 
 export const getAllReservations = () => {
   return new Promise((resolve, reject) => {
@@ -27,14 +27,22 @@ export const updateReservation = (id, data) => {
   });
 };
 
-export const deleteReservation = (id) => {
+export const deleteReservation = async (id) => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
+    setTimeout(async () => {
       const reservationListData = JSON.parse(
         localStorage.getItem("reservationList")
       );
-      const result = reservationListData.filter((item) => item.id !== id);
+      let seatData = "";
+      const result = reservationListData.filter((item) => {
+        if (item.id == id) {
+          seatData = item.seatNumber;
+        }
+        return item.id !== id;
+      });
+      await unBookSeats([seatData]);
       localStorage.setItem("reservationList", JSON.stringify(result));
+      console.log("Successfully deleted");
       resolve("Successfully deleted");
     }, 100);
   });

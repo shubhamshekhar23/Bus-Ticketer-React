@@ -1,40 +1,21 @@
 import React, { useState, useEffect } from "react";
 
 import "./reservation-item.scss";
+import { deleteReservation } from "../../services/reservation-api";
 
 export default function ReservationItem(props) {
-  const [state, setState] = useState({});
-
-  useEffect(() => {}, []);
-
-  const initialBooking = {
-    id: "b1334538-0d13-4b3e-a41d-4c486be100a7",
-    firstName: "John",
-    lastName: "Doe",
-    email: "john01@gmail.com",
-    seatNumber: "L3",
-    bookingDate: "2024-01-19T06:20:42.273Z",
-  };
-
-  const booking = props.data;
-
-  // const [booking, setBooking] = useState(initialBooking);
   const [editMode, setEditMode] = useState(false);
+  const booking = props.data;
 
   const handleEdit = () => {
     setEditMode(true);
   };
 
-  const handleDelete = () => {
-    // Implement the logic to delete the booking
-    // For simplicity, this example just resets the booking to initial state
-    // setBooking(initialBooking);
-    setEditMode(false);
+  const handleDelete = async () => {
+    props.delete(booking.id);
   };
 
   const handleSaveEdit = () => {
-    // Implement the logic to save the edited booking
-    // For simplicity, this example just cancels the edit mode
     setEditMode(false);
   };
 
