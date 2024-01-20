@@ -5,6 +5,7 @@ import ReservationItem from "../../components/reservation-item/reservation-item"
 import {
   getAllReservations,
   deleteReservation,
+  updateReservation,
 } from "../../services/reservation-api";
 
 export default function Dashboard(props) {
@@ -24,12 +25,21 @@ export default function Dashboard(props) {
     await fetchReservations();
   };
 
+  const saveForm = async (formData) => {
+    await updateReservation(formData);
+    await fetchReservations();
+  };
+
   return (
     <main className="dashboard_container">
       <h2>List of Reservations</h2>
       {reservations.map((item) => (
         <div key={item.id} className="reservation-item__container">
-          <ReservationItem data={item} delete={deleteReservationById} />
+          <ReservationItem
+            data={item}
+            delete={deleteReservationById}
+            save={saveForm}
+          />
         </div>
       ))}
     </main>

@@ -13,14 +13,18 @@ export const getAllReservations = () => {
   });
 };
 
-export const updateReservation = (id, data) => {
+export const updateReservation = (data) => {
   new Promise((resolve, reject) => {
     setTimeout(() => {
       const reservationListData = JSON.parse(
         localStorage.getItem("reservationList")
       );
-      const result = reservationListData.filter((item) => item.id !== id);
-      result.push(data);
+      const result = reservationListData.map((item) => {
+        if (item.id == data.id) {
+          return data;
+        }
+        return item;
+      });
       localStorage.setItem("reservationList", JSON.stringify(result));
       resolve("Successfully updated");
     }, 100);
