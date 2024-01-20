@@ -8,7 +8,7 @@ export default function UserDetails(props) {
   useEffect(() => {}, []);
 
   return (
-    <div className="reservation-item__details">
+    <div className={styles.reservation_item__details}>
       <div>
         <strong>Name:</strong> {props.booking.firstName}{" "}
         {props.booking.lastName}
