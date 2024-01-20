@@ -23,7 +23,10 @@ const Header = () => {
                 <a className="dropdown-item" href="/">
                   Dashboard
                 </a>
-                <a className="dropdown-item" href="/reservation">
+                <a
+                  className="dropdown-item"
+                  href="/Bus-Ticketer-React/reservation"
+                >
                   Reservation
                 </a>
               </div>
