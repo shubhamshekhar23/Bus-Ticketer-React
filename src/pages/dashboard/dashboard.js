@@ -7,6 +7,7 @@ import {
   deleteReservation,
   updateReservation,
 } from "../../services/reservation-api";
+import Header from "../../components/header/header";
 
 export default function Dashboard(props) {
   const [reservations, setReservations] = useState([]);
@@ -31,17 +32,20 @@ export default function Dashboard(props) {
   };
 
   return (
-    <main className="dashboard_container">
-      <h2>List of Reservations</h2>
-      {reservations.map((item) => (
-        <div key={item.id} className="reservation-item__container">
-          <ReservationItem
-            data={item}
-            delete={deleteReservationById}
-            save={saveForm}
-          />
-        </div>
-      ))}
-    </main>
+    <>
+      <Header />
+      <main className="dashboard_container">
+        <h2>List of Reservations</h2>
+        {reservations.map((item) => (
+          <div key={item.id} className="reservation-item__container">
+            <ReservationItem
+              data={item}
+              delete={deleteReservationById}
+              save={saveForm}
+            />
+          </div>
+        ))}
+      </main>
+    </>
   );
 }

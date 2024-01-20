@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Bus-Ticketer-React/static/css/main.99410011.css",
-    "main.js": "/Bus-Ticketer-React/static/js/main.efc40c29.js",
+    "main.css": "/Bus-Ticketer-React/static/css/main.b2a74c97.css",
+    "main.js": "/Bus-Ticketer-React/static/js/main.e7386cf7.js",
     "static/js/787.282ede2c.chunk.js": "/Bus-Ticketer-React/static/js/787.282ede2c.chunk.js",
     "index.html": "/Bus-Ticketer-React/index.html",
-    "main.99410011.css.map": "/Bus-Ticketer-React/static/css/main.99410011.css.map",
-    "main.efc40c29.js.map": "/Bus-Ticketer-React/static/js/main.efc40c29.js.map",
+    "main.b2a74c97.css.map": "/Bus-Ticketer-React/static/css/main.b2a74c97.css.map",
+    "main.e7386cf7.js.map": "/Bus-Ticketer-React/static/js/main.e7386cf7.js.map",
     "787.282ede2c.chunk.js.map": "/Bus-Ticketer-React/static/js/787.282ede2c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99410011.css",
-    "static/js/main.efc40c29.js"
+    "static/css/main.b2a74c97.css",
+    "static/js/main.e7386cf7.js"
   ]
 }

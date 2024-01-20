@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <main className="router_content">
         <RouterProvider router={router} />
       </main>

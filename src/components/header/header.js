@@ -12,23 +12,23 @@ const Header = () => {
   return (
     <nav className="header__nav-container">
       <div className="nav-container">
-        <a href="/" className="nav-logo">
+        <Link to="/" className="nav-logo">
           Bus Ticketer
-        </a>
+        </Link>
         <div className="nav-menu">
           <div className="nav-item" onClick={toggleDropdown}>
             Menu
             {showDropdown && (
               <div className="dropdown-content">
-                <a className="dropdown-item" href="/">
+                <Link className="dropdown-item" to="/">
                   Dashboard
-                </a>
-                <a
+                </Link>
+                <Link
                   className="dropdown-item"
-                  href="/Bus-Ticketer-React/reservation"
+                  to="/Bus-Ticketer-React/reservation"
                 >
                   Reservation
-                </a>
+                </Link>
               </div>
             )}
           </div>
