@@ -35,7 +35,8 @@ export default function UserFormList({ selectedSeats }) {
         {selectedSeats.map((item, index) => (
           <section className={styles.passenger_form} key={item}>
             <h3>
-              Passenger {index + 1} | Seat : {item}
+              Passenger {index + 1} | Seat :
+              <span className={styles.seat_num}>{item}</span>
             </h3>
             <UserDetailsForm
               index={index}

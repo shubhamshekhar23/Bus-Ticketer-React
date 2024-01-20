@@ -37,6 +37,15 @@ export default function ReservationItem(props) {
     });
   };
 
+  const convertToCustomFormat = (dateString) => {
+    const inputDate = new Date(dateString);
+    const day = inputDate.getUTCDate().toString().padStart(2, "0");
+    const month = (inputDate.getUTCMonth() + 1).toString().padStart(2, "0");
+    const year = inputDate.getUTCFullYear().toString().slice(-2);
+
+    return `${day}-${month}-${year}`;
+  };
+
   return (
     <div className="reservation-item-container">
       <section className="reservation-item__info">
@@ -53,10 +62,12 @@ export default function ReservationItem(props) {
       </section>
       <section>
         <div>
-          <strong>Seat Number:</strong> {booking.seatNumber}
+          <strong>Seat Number:</strong>
+          <span className="seat__num">{booking.seatNumber}</span>
         </div>
         <div>
-          <strong>Booking Date:</strong> {booking.bookingDate}
+          <strong>Booking Date:</strong>{" "}
+          {convertToCustomFormat(booking.bookingDate)}
         </div>
       </section>
       <section>
